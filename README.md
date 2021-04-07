@@ -13,4 +13,4 @@ home/Documents/MATLAB/VIPER/calib_files/
 ~~~
 on Mac. Example calibration files are found in the "Example Data" directory, and these files can be copied to the appropriate path above to test the program on the image data found in the same directory. When clicking the "Browse to Folder" button, select the parent directory of the image data to be analyzed. Details on the diameter calibration can be found in the "Diameter Calibration" directory.
 
-![2021-04-07 16-44-02](https://user-images.githubusercontent.com/42974485/113935555-b0c4be00-97c4-11eb-9bc1-9aea7c77ed6e.gif)
+![demo_xz](https://user-images.githubusercontent.com/42974485/113936787-4ad93600-97c6-11eb-959b-785786935e70.png)
