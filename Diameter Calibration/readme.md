@@ -6,12 +6,12 @@ The Visual Isocenter Position Enhanced Review, or VIPER, system relies on the di
 
 1. Align the phantom to isocenter using the MR imaging system. The tip of the hollow point in the conical plastic component should be aligned with [0,0,0] in the MR image.
 
-1. Deliver the sheet beam plan to the phantom at this position (all four angles) while acquiring Cherenkov data using C-Dose research. This will produce a cumulative PNG file in the acquisition folder. (Review -> Menu -> Browse to DB). If RAW files are produced, alter the C-Dose settings to "Save Average Image".
+2. Deliver the sheet beam plan to the phantom at this position (all four angles) while acquiring Cherenkov data using C-Dose research. This will produce a cumulative PNG file in the acquisition folder. (Review -> Menu -> Browse to DB). If RAW files are produced, alter the C-Dose settings to "Save Average Image".
 
-1. Repeat step 2, but with longitudinal shifts of -5 mm, -2.5 mm, -1 mm, 1 mm, 2.5 mm, and 5 mm. Keep track of which image is which.
+3. Repeat step 2, but with longitudinal shifts of -5 mm, -2.5 mm, -1 mm, 1 mm, 2.5 mm, and 5 mm. Keep track of which image is which.
 
-1. Use the _VIPERLngCalib.m_ script to Analyze the images and extract the optical diameters.
+4. Use the _VIPERLngCalib.m_ script to Analyze the images and extract the optical diameters.
 
-1. Input these diameters in the Calibration pane of the VIPER software separated by commas.
+5. Input these diameters in the Calibration pane of the VIPER software separated by commas.
 
 ![Longitudinal Calib Screenshot](calib_screenshot.png)
