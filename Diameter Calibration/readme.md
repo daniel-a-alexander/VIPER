@@ -14,4 +14,4 @@ The Visual Isocenter Position Enhanced Review, or VIPER, system relies on the di
 
 5. Input these diameters in the Calibration pane of the VIPER software separated by commas.
 
-![Longitudinal Calib Screenshot](https://imgur.com/a/MrXWOD2)
+![Longitudinal Calib Screenshot](https://i.postimg.cc/3JmSzYnY/calib-screenshot.png)
