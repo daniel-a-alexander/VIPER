@@ -4,7 +4,7 @@ _Written 04/07/2021 by Daniel Alexander (_[_daniel.a.alexander.th@dartmouth.edu_
 
  This directory contains the standalone VIPER program for use on Windows systems.
 
-1. Prerequisites for Deployment 
+**Prerequisites for Deployment**
 
 Verify that version 9.8 (R2020a) of the MATLAB Runtime is installed.   
 If not, you can run the MATLAB Runtime installer.
