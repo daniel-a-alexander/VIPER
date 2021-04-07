@@ -7,8 +7,8 @@ Upon launching the program (VIPER.exe) or running the script (VIPER.m in MATLAB 
 ~~~
 %USERPROFILE%\Documents\MATLAB\VIPER\calib_files\
 ~~~
-on Windows and 
+on Windows, and 
 ~~~
 home/Documents/MATLAB/VIPER/calib_files/
 ~~~
-on Mac. 
+on Mac. Example calibration files are found in the "Example Data" directory, and these files can be copied to the appropriate path above to test the program on the image data found in the same directory. When clicking the "Browse to Folder" button, select the parent directory of the image data to be analyzed.
