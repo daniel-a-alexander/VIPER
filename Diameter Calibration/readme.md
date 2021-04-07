@@ -13,3 +13,5 @@ The Visual Isocenter Position Enhanced Review, or VIPER, system relies on the di
 1. Use the &quot;VIPERLngCalib.m&quot; file to Analyze the images and extract the optical diameters.
 
 1. Input these diameters in the Calibration pane of the VIPER software separated by commas.
+
+![Longitudinal Calib Screenshot](calib_screenshot.png)
