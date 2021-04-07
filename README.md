@@ -5,5 +5,10 @@ The VIPER system is a phantom and analysis program designed to perform MR-RT iso
 
 Upon launching the program (VIPER.exe) or running the script (VIPER.m in MATLAB 2020a or later), the UI presents four tabs: X-Z Alignment, Y Alignment, Resuts, and Calibration. The calibration tab allows the user to edit settings and calibration parameters used by the software. These settings are saved as .mat files in userpath/VIPER/calib_files/, which by default are:
 ~~~
-%USERPROFILE%/Documents/MATLAB
+%USERPROFILE%\Documents\MATLAB\VIPER\calib_files\
 ~~~
+on Windows and 
+~~~
+home/Documents/MATLAB/VIPER/calib_files/
+~~~
+on Mac. 
