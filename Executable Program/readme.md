@@ -1,4 +1,4 @@
-**VIPER Application Executable**
+### **VIPER Application Executable**
 
 _Written 04/07/2021 by Daniel Alexander (_[_daniel.a.alexander.th@dartmouth.edu_](mailto:daniel.a.alexander.th@dartmouth.edu)_)_
 
