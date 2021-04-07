@@ -18,8 +18,8 @@ NOTE: You will need administrator rights to run the MATLAB Runtime installer.
 Alternatively, download and install the Windows version of the MATLAB Runtime for R2020a 
 from the following link on the MathWorks website:
 
-    https://www.mathworks.com/products/compiler/mcr/index.html
-   
+(_[_https://www.mathworks.com/products/compiler/mcr/index.html_](https://www.mathworks.com/products/compiler/mcr/index.html)_)_
+
 For more information about the MATLAB Runtime and the MATLAB Runtime installer, see 
 "Distribute Applications" in the MATLAB Compiler documentation  
 in the MathWorks Documentation Center.
