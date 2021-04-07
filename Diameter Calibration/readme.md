@@ -1,4 +1,4 @@
-**Longitudinal Ring Calibration Procedure for VIPER System**
+### **Longitudinal Ring Calibration Procedure for VIPER System**
 
 _Written 11/21/20 by Daniel Alexander (_[_daniel.a.alexander.th@dartmouth.edu_](mailto:daniel.a.alexander.th@dartmouth.edu)_)_
 
