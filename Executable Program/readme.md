@@ -15,7 +15,7 @@ To find its location, enter
 at the MATLAB prompt.
 NOTE: You will need administrator rights to run the MATLAB Runtime installer. 
 
-Alternatively, download and install the Windows version of the MATLAB Runtime for R2020a 
+Alternatively, download and install the Windows version of the MATLAB Runtime for R2023a 
 from the following link on the MathWorks website:
 
 [https://www.mathworks.com/products/compiler/matlab-runtime.html](https://www.mathworks.com/products/compiler/matlab-runtime.html)
