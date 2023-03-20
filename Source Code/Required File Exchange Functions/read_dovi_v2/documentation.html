@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>documentation.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="read-dovi-v2-documentation"><strong>Read Dovi (v2) Documentation</strong></h1>
+<p>Copyright DoseOptics LLC 2021</p>
+<h2 id="syntax"><strong>Syntax</strong></h2>
+<pre><code>  I = read_dovi(file_path)
+  I = read_dovi(___,Name,Value)
+</code></pre>
+<h2 id="description"><strong>Description</strong></h2>
+<p>read_dovi_v2 will import image data from C-Dose Research (5.03 or later).</p>
+<h2 id="examples"><strong>Examples</strong></h2>
+<p><strong>Read in Cherenkov video frames</strong></p>
+<pre><code>filename = 'meas_cam0.dovi';
+I = read_dovi_v2(filename);
+</code></pre>
+<p><strong>Read in Background video frames</strong></p>
+<pre><code>filename = 'meas_cam0.dovi';
+I = read_dovi_v2(filename,'channel','bkgd');
+</code></pre>
+<p><strong>Read in cumulative Cherenkov image</strong></p>
+<pre><code>filename = 'meas_cam0.dovi';
+I = read_dovi_v2(filename,'cumulative',1);
+</code></pre>
+<p><strong>Read in first 10 Cherenkov video frames</strong></p>
+<pre><code>filename = 'meas_cam0.dovi';
+I = read_dovi_v2(filename,zrange,[1 10]);
+</code></pre>
+<h2 id="input-arguments"><strong>Input Arguments</strong></h2>
+<pre><code>file_path
+</code></pre>
+<p>char array or string containing the path/file name to the .dovi header file corresponding to the data wish to be read in.</p>
+<p><strong>Name-Value Arguments</strong></p>
+<pre><code>channel - 'chkv' (default) | 'bkgd' | 'custom'
+</code></pre>
+<p>Determines whether the Cherenkov or Background image(s) are read in. If data was acquired in C-Dose Research ‘Custom’ mode, use ‘custom’.</p>
+<pre><code>zrange - two-element vector
+</code></pre>
+<p>Selects the range of frames to be read in. By default, all frames will be read in.</p>
+<pre><code>cumulative - 0 (default) | 1
+</code></pre>
+<p>Determines whether the 8-bit video frames (0) are read in, or the 32-bit cumulative image.</p>
+<h2 id="output-arguments"><strong>Output Arguments</strong></h2>
+<pre><code>I - uint8 or uint32 array, 2D or 3D
+</code></pre>
+<p>2D or 3D array containing image data. If the cumulative option is set to 0 (default), I will be a (m x n x z) uint8 array containing z frames of (m x n) image data. If the cumulative option is set to 1, I will be a (m x n) uint32 array containing the cumulative image data.</p>
+<p><em>This document was edited using StackEdit (<a href="http://stackedit.io">stackedit.io</a>)</em></p>
+</div>
+</body>
+
+</html>

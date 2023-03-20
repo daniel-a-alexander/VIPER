@@ -6,7 +6,7 @@ _Written 04/07/2021 by Daniel Alexander (_[_daniel.a.alexander.th@dartmouth.edu_
 
 **Prerequisites for Deployment**
 
-Verify that version 9.8 (R2020a) of the MATLAB Runtime is installed.   
+Verify that version 9.14 (R2023a) of the MATLAB Runtime is installed.   
 If not, you can run the MATLAB Runtime installer.
 To find its location, enter
   

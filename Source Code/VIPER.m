@@ -1,84 +1,113 @@
-classdef VIPER_exported < matlab.apps.AppBase
+% VIPER VERSION 1.3
+% 2023-03-20
+% Daniel Alexander
+% Exported from App designer
+
+classdef VIPER < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
         VIPERUIFigure                  matlab.ui.Figure
         TabGroup                       matlab.ui.container.TabGroup
         XZAlignmentTab                 matlab.ui.container.Tab
-        BrowsetoFolderButton_1         matlab.ui.control.Button
-        PositionROILabel               matlab.ui.control.Label
-        AnalyzeStarshotLabel           matlab.ui.control.Label
-        PositionROIButton              matlab.ui.control.Button
-        FindPhantomCenterLabel         matlab.ui.control.Label
-        ClickCrosshairButton           matlab.ui.control.Button
-        AnalyzeStarshotButton          matlab.ui.control.Button
-        AnalyzeMessage                 matlab.ui.control.Label
-        MinimumCircleRadiusLabel       matlab.ui.control.Label
-        MinimumCircleRadiusValue       matlab.ui.control.Label
-        ofbeamsEditFieldLabel          matlab.ui.control.Label
-        NofbeamsEditField              matlab.ui.control.NumericEditField
-        ResetCherenkovImageButton      matlab.ui.control.Button
-        ResetBackgroundImageButton     matlab.ui.control.Button
-        FFStatusLabel                  matlab.ui.control.Label
-        LoadImagesLabel                matlab.ui.control.Label
         CenterCoordlabel               matlab.ui.control.Label
-        UIAxes_prof                    matlab.ui.control.UIAxes
-        UIAxes_bkg                     matlab.ui.control.UIAxes
+        LoadImagesLabel                matlab.ui.control.Label
+        FFStatusLabel                  matlab.ui.control.Label
+        ResetBackgroundImageButton     matlab.ui.control.Button
+        ResetCherenkovImageButton      matlab.ui.control.Button
+        NofbeamsEditField              matlab.ui.control.NumericEditField
+        ofbeamsEditFieldLabel          matlab.ui.control.Label
+        MinimumCircleRadiusValue       matlab.ui.control.Label
+        MinimumCircleRadiusLabel       matlab.ui.control.Label
+        AnalyzeMessage                 matlab.ui.control.Label
+        AnalyzeStarshotButton          matlab.ui.control.Button
+        ClickCrosshairButton           matlab.ui.control.Button
+        FindPhantomCenterLabel         matlab.ui.control.Label
+        PositionROIButton              matlab.ui.control.Button
+        AnalyzeStarshotLabel           matlab.ui.control.Label
+        PositionROILabel               matlab.ui.control.Label
+        BrowsetoFolderButton_1         matlab.ui.control.Button
         UIAxes_ch                      matlab.ui.control.UIAxes
+        UIAxes_bkg                     matlab.ui.control.UIAxes
+        UIAxes_prof                    matlab.ui.control.UIAxes
         YAlignmentTab                  matlab.ui.container.Tab
-        BrowsetoFolderButton_2         matlab.ui.control.Button
-        FFStatusLabel_2                matlab.ui.control.Label
-        LoadImagesLabel_2              matlab.ui.control.Label
-        YAlignmentWarning              matlab.ui.control.Label
-        LoadImagesLabel_3              matlab.ui.control.Label
-        PositionROIButton_2            matlab.ui.control.Button
-        CenterCoordlabel_2             matlab.ui.control.Label
-        CalcOpticalDiamLabel           matlab.ui.control.Label
-        CalcOpticalDiamButton          matlab.ui.control.Button
-        OpticalDiamLabel               matlab.ui.control.Label
-        ResetCherenkovImageButton_2    matlab.ui.control.Button
         ResetBackgroundImageButton_2   matlab.ui.control.Button
-        UIAxes_bkg_2                   matlab.ui.control.UIAxes
+        ResetCherenkovImageButton_2    matlab.ui.control.Button
+        OpticalDiamLabel               matlab.ui.control.Label
+        CalcOpticalDiamButton          matlab.ui.control.Button
+        CalcOpticalDiamLabel           matlab.ui.control.Label
+        CenterCoordlabel_2             matlab.ui.control.Label
+        PositionROIButton_2            matlab.ui.control.Button
+        LoadImagesLabel_3              matlab.ui.control.Label
+        YAlignmentWarning              matlab.ui.control.Label
+        LoadImagesLabel_2              matlab.ui.control.Label
+        FFStatusLabel_2                matlab.ui.control.Label
+        BrowsetoFolderButton_2         matlab.ui.control.Button
         UIAxes_ch_2                    matlab.ui.control.UIAxes
+        UIAxes_bkg_2                   matlab.ui.control.UIAxes
         ResultsTab                     matlab.ui.container.Tab
-        ResultsLabel                   matlab.ui.control.Label
-        dxmmLabel                      matlab.ui.control.Label
-        dymmLabel                      matlab.ui.control.Label
-        dzmmLabel                      matlab.ui.control.Label
-        drmmLabel                      matlab.ui.control.Label
-        RTtoMRLabel                    matlab.ui.control.Label
-        DifferencesLabel               matlab.ui.control.Label
-        CalculateResultsButton         matlab.ui.control.Button
-        RT_MR_dx_Label                 matlab.ui.control.Label
-        RT_MR_dy_Label                 matlab.ui.control.Label
-        RT_MR_dz_Label                 matlab.ui.control.Label
-        RT_MR_dr_Label                 matlab.ui.control.Label
         PhantOffsetMissingLabel        matlab.ui.control.Label
+        RT_MR_dr_Label                 matlab.ui.control.Label
+        RT_MR_dz_Label                 matlab.ui.control.Label
+        RT_MR_dy_Label                 matlab.ui.control.Label
+        RT_MR_dx_Label                 matlab.ui.control.Label
+        CalculateResultsButton         matlab.ui.control.Button
+        DifferencesLabel               matlab.ui.control.Label
+        RTtoMRLabel                    matlab.ui.control.Label
+        drmmLabel                      matlab.ui.control.Label
+        dzmmLabel                      matlab.ui.control.Label
+        dymmLabel                      matlab.ui.control.Label
+        dxmmLabel                      matlab.ui.control.Label
+        ResultsLabel                   matlab.ui.control.Label
         CalibrationTab                 matlab.ui.container.Tab
-        BrowsetoFolderButton_4         matlab.ui.control.Button
-        LoadNewFlatfieldLabel          matlab.ui.control.Label
-        DefinePixelSizeLabel           matlab.ui.control.Label
-        PixelSizeSpinner               matlab.ui.control.Spinner
-        SavePixelSizeButton            matlab.ui.control.Button
-        mmLabel_1                      matlab.ui.control.Label
-        DoyouwanttosavethisvalueThiswillimpactresultsLabel  matlab.ui.control.Label
-        SavePixelSizeCheck             matlab.ui.control.DropDown
-        SavePixelSizeStatusLabel       matlab.ui.control.Label
-        RingDiameterCalibLabel         matlab.ui.control.Label
-        BackgroundRingDiametermmLabel  matlab.ui.control.Label
-        BkgRingDiameter                matlab.ui.control.NumericEditField
-        CalibYShifts                   matlab.ui.control.Label
-        SaveYCalibButton               matlab.ui.control.Button
-        DoyouwanttosavethesevaluesThiswillimpactresultsLabel  matlab.ui.control.Label
-        SaveYCalibCheck                matlab.ui.control.DropDown
-        SaveYCalibStatusLabel          matlab.ui.control.Label
-        SaveYCalibStatusLabelEditFieldLabel  matlab.ui.control.Label
-        RingDiameterCalib              matlab.ui.control.EditField
-        OpticalDiamsFormatWarning      matlab.ui.control.Label
-        DefaultDataPathLabel           matlab.ui.control.Label
-        DefaultDataPathField           matlab.ui.control.EditField
-        SavePathButton                 matlab.ui.control.Button
+        SaveOutputStatusLabel          matlab.ui.control.Label
+        SaveOutputButton               matlab.ui.control.Button
+        BaselineOutputField            matlab.ui.control.NumericEditField
+        BaselineOutputcountsLabel      matlab.ui.control.Label
+        OutputCalibLabel               matlab.ui.control.Label
         SavePathStatusLabel            matlab.ui.control.Label
+        SavePathButton                 matlab.ui.control.Button
+        DefaultDataPathField           matlab.ui.control.EditField
+        DefaultDataPathLabel           matlab.ui.control.Label
+        OpticalDiamsFormatWarning      matlab.ui.control.Label
+        RingDiameterCalib              matlab.ui.control.EditField
+        SaveYCalibStatusLabelEditFieldLabel  matlab.ui.control.Label
+        SaveYCalibStatusLabel          matlab.ui.control.Label
+        SaveYCalibCheck                matlab.ui.control.DropDown
+        DoyouwanttosavethesevaluesThiswillimpactresultsLabel  matlab.ui.control.Label
+        SaveYCalibButton               matlab.ui.control.Button
+        CalibYShifts                   matlab.ui.control.Label
+        BkgRingDiameter                matlab.ui.control.NumericEditField
+        BackgroundRingDiametermmLabel  matlab.ui.control.Label
+        RingDiameterCalibLabel         matlab.ui.control.Label
+        SavePixelSizeStatusLabel       matlab.ui.control.Label
+        SavePixelSizeCheck             matlab.ui.control.DropDown
+        DoyouwanttosavethisvalueThiswillimpactresultsLabel  matlab.ui.control.Label
+        mmLabel_1                      matlab.ui.control.Label
+        SavePixelSizeButton            matlab.ui.control.Button
+        PixelSizeSpinner               matlab.ui.control.Spinner
+        DefinePixelSizeLabel           matlab.ui.control.Label
+        LoadNewFlatfieldLabel          matlab.ui.control.Label
+        BrowsetoFolderButton_4         matlab.ui.control.Button
+        OutputexperimentalTab          matlab.ui.container.Tab
+        or                             matlab.ui.control.Label
+        XZAlignOption                  matlab.ui.control.Label
+        BaselineWarningLabel_2         matlab.ui.control.Label
+        XZAlignCheckBox                matlab.ui.control.CheckBox
+        BaselineWarningLabel           matlab.ui.control.Label
+        CenterCoordlabel_3             matlab.ui.control.Label
+        ClickCrosshairButton_2         matlab.ui.control.Button
+        FindPhantomCenterLabel_2       matlab.ui.control.Label
+        CalculateOutputButton          matlab.ui.control.Button
+        cOutputResultLabel             matlab.ui.control.Label
+        OutputNormResultLabel          matlab.ui.control.Label
+        OutputCountsResultLabel        matlab.ui.control.Label
+        NormalizedtobaselineLabel      matlab.ui.control.Label
+        CountsLabel                    matlab.ui.control.Label
+        aLoadImagesLabel               matlab.ui.control.Label
+        BrowsetoFolderButton_5         matlab.ui.control.Button
+        UIAxes_ch_3                    matlab.ui.control.UIAxes
+        UIAxes_bkg_3                   matlab.ui.control.UIAxes
     end
 
 
@@ -92,6 +121,7 @@ classdef VIPER_exported < matlab.apps.AppBase
         circ_vertices; % vertices of circle roi
         isLoaded_xz = 0;
         isLoaded_y = 0;
+        isLoaded_op = 0;
         isCrosshair = 0;
         isRing = 0;
         isROI = 0;
@@ -106,6 +136,8 @@ classdef VIPER_exported < matlab.apps.AppBase
         min_circ_r;
         ch_im_y;
         bkg_im_y; 
+        ch_im_op;
+        bkg_im_op;
         isXZdone = 0; 
         isYDone = 0;
         bkg_ring_center = [nan nan];
@@ -116,8 +148,12 @@ classdef VIPER_exported < matlab.apps.AppBase
         background_ring_diam_calib; 
         optical_diam;
         defaultpath = 0;
+        baselineoutput = nan;
         ss_circ_center;
         ss_circ_radius; % Description
+        outputMask
+        imcent2 = [nan nan];
+        isCrosshair2 = 0;
     end
     
     
@@ -256,6 +292,9 @@ classdef VIPER_exported < matlab.apps.AppBase
             app.UIAxes_ch_2.Title.Color = 'w';
             app.UIAxes_bkg_2.Title.Color = 'w';
             
+            app.UIAxes_ch_3.Title.Color = 'w';
+            app.UIAxes_bkg_3.Title.Color = 'w';
+            
             % Load calib files -------------------
             % Check that calib folder exists
             if ~isfolder(fullfile(userpath, 'VIPER', 'calib_files'))
@@ -298,6 +337,14 @@ classdef VIPER_exported < matlab.apps.AppBase
                 app.DefaultDataPathField.Value = app.defaultpath;
             end
             
+            % Output Baseline
+            
+            if isfile(fullfile(userpath, 'VIPER', 'calib_files','BaselineOutput.mat'))
+                loaded_output_baseline = load(fullfile(userpath, 'VIPER', 'calib_files','BaselineOutput.mat'));
+                app.baselineoutput = loaded_output_baseline.BaselineOutput;
+                app.BaselineOutputField.Value = app.baselineoutput;
+            end
+        
             % Flatfield-----------------------
             if isfile(fullfile(userpath, 'VIPER', 'calib_files', 'FF.mat'))
                 loaded_ff_data = load(fullfile(userpath, 'VIPER', 'calib_files', 'FF.mat')); 
@@ -328,44 +375,26 @@ classdef VIPER_exported < matlab.apps.AppBase
             if path ~= 0
                 dirContents = dir(path);
                 
-                % Check for dovi files
-                hasDovi = 0;
-                hasMat = 0;
-                hasPNG = 0;
-                matFile = '';
+                % Check for raw cumulative dovi files
+                hasDovi = false;
+                hasCRaw = false;
+
                 for i=1:numel(dirContents)
                     if contains(dirContents(i).name, '.dovi')
-                        hasDovi = hasDovi +1;
+                        hasDovi = true;
                     end
-                    if contains(dirContents(i).name, '.mat')
-                        matFile = dirContents(i).name;
-                        hasMat = hasMat+1;
-                    end
-                    if contains(dirContents(i).name, 'meas') && contains(dirContents(i).name, '.png')
-                        hasPNG = hasPNG+1;
+                end
+                
+                for i=1:numel(dirContents)
+                    if contains(dirContents(i).name, '_c.raw')
+                        hasCRaw = true;
                     end
                 end
                 
                 % load images
-                if (hasDovi + hasMat + hasPNG >= 1) 
-                    
-                    % Check for png files, then mat files, then dovi files
-                    if hasPNG > 0
-                        app.ch_im_xz = flip(double(imread(fullfile(path,'meas_s1_cam0.png'))),1);
-                        app.bkg_im_xz = flip(double(imread(fullfile(path,'meas_s0_cam0.png'))),1);
-                    elseif hasMat > 0
-                        matVars = load(fullfile(path,matFile));
-                        app.ch_im_xz = matVars.im1;
-                        app.bkg_im_xz = matVars.im0;
-                    else
-                        app.ch_im_xz = sum(read_dovi(fullfile(path,'meas_s1_cam0.dovi')),3);
-                        app.bkg_im_xz = sum(read_dovi(fullfile(path,'meas_s0_cam0.dovi')),3);
-                        % save mat file for next time
-                        im1 = app.ch_im_xz;
-                        im0 = app.bkg_im_xz;
-                        save(fullfile(path,'summed_images.mat'), 'im1', 'im0');
-                    end
-                    
+                if hasDovi && hasCRaw
+                    app.ch_im_xz = double(read_dovi_v2(fullfile(path,'meas_cam0.dovi'),'cumulative',1,'channel','chkv'));
+                    app.bkg_im_xz = double(read_dovi_v2(fullfile(path,'meas_cam0.dovi'),'cumulative',1,'channel','bkgd'));
                     % Get rid of readout pixels
                     app.ch_im_xz(1,:) = app.ch_im_xz(2,:);
                     app.bkg_im_xz(1,:) = app.bkg_im_xz(2,:);
@@ -414,19 +443,13 @@ classdef VIPER_exported < matlab.apps.AppBase
     %                 set(app.VIPERUIFigure, 'Pointer','arrow');
                     app.BrowsetoFolderButton_1.Text = 'Browse to Folder';
                     
-                elseif hasDovi == 0
+                else
                     app.BrowsetoFolderButton_1.Text = 'No Files Found';
                     app.isLoaded_xz = 0;
                     pause(2)
     %                 set(app.VIPERUIFigure, 'Pointer','arrow');
                     app.BrowsetoFolderButton_1.Text = 'Browse to Folder';
-                    
-                elseif hasDovi == 1
-                    app.BrowsetoFolderButton_1.Text = 'Missing Files';
-                    app.isLoaded_xz = 0;
-                    pause(2)
-    %                 set(app.VIPERUIFigure, 'Pointer','arrow');
-                    app.BrowsetoFolderButton_1.Text = 'Browse to Folder';
+
                 end
             else
                 app.BrowsetoFolderButton_1.Text = 'Cancelled';
@@ -507,48 +530,52 @@ classdef VIPER_exported < matlab.apps.AppBase
                 point = drawpoint(app.UIAxes_bkg);
                 temp_cent = round(point.Position);
                 delete(point)
+
+                app.imcent = temp_cent;
                 
-                % Auto calculate crosshair center ----------------
-                r_mm = 8; % px 
-                r_px = r_mm/app.pixelsize; % convert to px
-                circ_vertices_bkg = circlepoints(round(temp_cent(1)), round(temp_cent(2)), round(r_px));
-                bkg_circ_profile = zeros(size(circ_vertices_bkg, 1),1);
-                for i=1:size(circ_vertices_bkg, 1)
-                    bkg_circ_profile(i) = app.bkg_im_xz(round(circ_vertices_bkg(i,2)), round(circ_vertices_bkg(i,1)));
-                end
+%                 % Auto calculate crosshair center ----------------
+%                 r_mm = 8; % mm
+%                 r_px = r_mm/app.pixelsize; % convert to px
+%                 circ_vertices_bkg = circlepoints(round(temp_cent(1)), round(temp_cent(2)), round(r_px));
+%                 bkg_circ_profile = zeros(size(circ_vertices_bkg, 1),1);
+%                 for i=1:size(circ_vertices_bkg, 1)
+%                     bkg_circ_profile(i) = app.bkg_im_xz(round(circ_vertices_bkg(i,2)), round(circ_vertices_bkg(i,1)));
+%                 end
+% 
+%                 vectors = double(circ_vertices_bkg);
+%                 vectors(:,1) = double(circ_vertices_bkg(:,1) - temp_cent(1));
+%                 vectors(:,2) = double(circ_vertices_bkg(:,2) - temp_cent(2));   
+%                 angles = atan2d(vectors(:,2), vectors(:,1)); 
+%                 for a=1:numel(angles)
+%                     if angles(a) <= -135
+%                         angles(a) = 360+angles(a);
+%                     end
+%                 end
+%                 [angles, sort_idx_bkg] = sort(angles);
+%                 circ_vertices_bkg = circ_vertices_bkg(sort_idx_bkg,:);
+%                 bkg_circ_profile = bkg_circ_profile(sort_idx_bkg,:);
+% 
+%                 %%
+% 
+%                 bkg_circ_profile = mat2gray(-bkg_circ_profile);
+% %                 plot(angles, bkg_circ_profile)
+% 
+%                 %%
+% 
+%                 [~, array_idx, ~, proms] = findpeaks(bkg_circ_profile); % values, indeces, widths, promineces
+%                 peak_idx = proms > 0.30*max(proms(:)); % greater than 10% of max prominence
+%                 array_idx = array_idx(peak_idx)';
+%                 peak_coords = circ_vertices_bkg(array_idx, :);
+%                 disp(peak_coords)
+%                 L1(1,:) = [peak_coords(1, 1), peak_coords(3, 1)];
+%                 L1(2,:) = [peak_coords(1, 2), peak_coords(3, 2)];
+% 
+%                 L2(1,:) = [peak_coords(2, 1), peak_coords(4, 1)];
+%                 L2(2,:) = [peak_coords(2, 2), peak_coords(4, 2)];
                 
-                vectors = double(circ_vertices_bkg);
-                vectors(:,1) = double(circ_vertices_bkg(:,1) - temp_cent(1));
-                vectors(:,2) = double(circ_vertices_bkg(:,2) - temp_cent(2));   
-                angles = atan2d(vectors(:,2), vectors(:,1)); 
-                for a=1:numel(angles)
-                    if angles(a) <= -135
-                        angles(a) = 360+angles(a);
-                    end
-                end
-                [angles, sort_idx_bkg] = sort(angles);
-                circ_vertices_bkg = circ_vertices_bkg(sort_idx_bkg,:);
-                bkg_circ_profile = bkg_circ_profile(sort_idx_bkg,:);
-                
-                %%
-                
-                bkg_circ_profile = mat2gray(-bkg_circ_profile);
-%                 plot(angles, bkg_circ_profile)
-                
-                %%
-                
-                [~, array_idx, ~, proms] = findpeaks(bkg_circ_profile); % values, indeces, widths, promineces
-                peak_idx = proms > 0.30*max(proms(:)); % greater than 10% of max prominence
-                array_idx = array_idx(peak_idx)';
-                peak_coords = circ_vertices_bkg(array_idx, :);
-                L1(1,:) = [peak_coords(1, 1), peak_coords(3, 1)];
-                L1(2,:) = [peak_coords(1, 2), peak_coords(3, 2)];
-                
-                L2(1,:) = [peak_coords(2, 1), peak_coords(4, 1)];
-                L2(2,:) = [peak_coords(2, 2), peak_coords(4, 2)];
-                
-                app.imcent = round(InterX(L1,L2)');
-                
+                % app.imcent = round(InterX(L1,L2)');
+                h2 = drawpoint(app.UIAxes_bkg,'Position',app.imcent);
+
                 % Update UI --------------
                 app.CenterCoordlabel.Text = '';
                 pause(0.4)
@@ -587,7 +614,6 @@ classdef VIPER_exported < matlab.apps.AppBase
                 peaks_and_troughs = 0.5 * (crossing_inds(1:end-1) + crossing_inds(2:end));
                 temp_interp = interp1(xinds, temp, peaks_and_troughs);
                 peak_idx = peaks_and_troughs(temp_interp>0);
-                disp(peak_idx)
                 peak_coords = app.circ_vertices(round(peak_idx),:);
 %                 proms = proms(peak_idx)'; 
 
@@ -694,7 +720,6 @@ classdef VIPER_exported < matlab.apps.AppBase
 
                 % Display min circle radius
                 app.MinimumCircleRadiusValue.Text = [num2str(app.min_circ_r*app.pixelsize, 2), ' mm'];
-                disp(num2str(app.min_circ_c))
                 % Allow Y-alignment
                 app.isXZdone = 1;
                 app.YAlignmentWarning.Text = '';
@@ -717,7 +742,7 @@ classdef VIPER_exported < matlab.apps.AppBase
                 [xData, yData] = prepareCurveData( diam_diffs_calib, app.y_vals_calib );
                 ft = fittype( 'poly1' );
                     % Fit model to data
-                [fitresult, gof] = fit( xData, yData, ft );
+                [fitresult, ~] = fit( xData, yData, ft );
                 coefs = coeffvalues(fitresult);
                 p1 = coefs(1);
                 p2 = coefs(2);
@@ -732,25 +757,25 @@ classdef VIPER_exported < matlab.apps.AppBase
             
             % Update text displays
             app.RT_MR_dx_Label.Text = num2str(app.RT_MR_dx,'%2.2f');
-            if abs(app.RT_MR_dx) < 2;
+            if abs(app.RT_MR_dx) < 2
                 app.RT_MR_dx_Label.FontColor = 'g';
             else
                 app.RT_MR_dx_Label.FontColor = 'r';
             end
             app.RT_MR_dy_Label.Text = num2str(app.RT_MR_dy,'%2.2f');
-            if abs(app.RT_MR_dy) < 2;
+            if abs(app.RT_MR_dy) < 2
                 app.RT_MR_dy_Label.FontColor = 'g';
             else
                 app.RT_MR_dy_Label.FontColor = 'r';
             end
             app.RT_MR_dz_Label.Text = num2str(app.RT_MR_dz,'%2.2f');
-            if abs(app.RT_MR_dz) < 2;
+            if abs(app.RT_MR_dz) < 2
                 app.RT_MR_dz_Label.FontColor = 'g';
             else
                 app.RT_MR_dz_Label.FontColor = 'r';
             end
             app.RT_MR_dr_Label.Text = num2str(app.RT_MR_dr,'%2.2f');
-            if abs(app.RT_MR_dr) < 2;
+            if abs(app.RT_MR_dr) < 2
                 app.RT_MR_dr_Label.FontColor = 'g';
             else
                 app.RT_MR_dr_Label.FontColor = 'r';
@@ -830,16 +855,24 @@ classdef VIPER_exported < matlab.apps.AppBase
             dirContents = dir(path);
             
             % Check for dovi files
-            hasDovi = 0;
+            hasDovi = false;
+            hasCRaw = false;
+
             for i=1:numel(dirContents)
                 if contains(dirContents(i).name, '.dovi')
-                    hasDovi = hasDovi + 1;
+                    hasDovi = true;
+                end
+            end
+            
+            for i=1:numel(dirContents)
+                if contains(dirContents(i).name, '_c.raw')
+                    hasCRaw = true;
                 end
             end
             
             % load images
-            if hasDovi > 0
-                temp = sum(read_dovi(fullfile(path,'meas_s0_cam0.dovi')),3);
+            if hasDovi && hasCRaw
+                temp =  double(read_dovi_v2(fullfile(path,'meas_cam0.dovi'),'cumulative',1,'channel','bkgd'));
                 app.ff = temp./(max(temp(:)));
                 FF = app.ff;
                 save(fullfile(userpath, 'VIPER', 'calib_files', 'FF.mat'), 'FF');
@@ -928,44 +961,26 @@ classdef VIPER_exported < matlab.apps.AppBase
             if path ~= 0
                 dirContents = dir(path);
                 
-                % Check for dovi files
-                hasDovi = 0;
-                hasMat = 0;
-                hasPNG = 0;
-                matFile = '';
+               % Check for raw cumulative dovi files
+                hasDovi = false;
+                hasCRaw = false;
+
                 for i=1:numel(dirContents)
                     if contains(dirContents(i).name, '.dovi')
-                        hasDovi = hasDovi +1;
+                        hasDovi = true;
                     end
-                    if contains(dirContents(i).name, '.mat')
-                        matFile = dirContents(i).name;
-                        hasMat = hasMat+1;
-                    end
-                    if contains(dirContents(i).name, 'meas') && contains(dirContents(i).name, '.png')
-                        hasPNG = hasPNG+1;
+                end
+                
+                for i=1:numel(dirContents)
+                    if contains(dirContents(i).name, '_c.raw')
+                        hasCRaw = true;
                     end
                 end
                 
                 % load images
-                if (hasDovi+hasMat+hasPNG > 0) 
-                    
-                    % Check for png files, then mat files, then dovi files
-                    if hasPNG > 0
-                        app.ch_im_y = flip(double(imread(fullfile(path,'meas_s1_cam0.png'))),1);
-                        app.bkg_im_y = flip(double(imread(fullfile(path,'meas_s0_cam0.png'))),1);
-                    elseif hasMat > 0
-                        matVars = load(fullfile(path,matFile));
-                        app.ch_im_y = matVars.im1;
-                        app.bkg_im_y = matVars.im0;
-                    else
-                        app.ch_im_y = sum(read_dovi(fullfile(path,'meas_s1_cam0.dovi')),3);
-                        app.bkg_im_y = sum(read_dovi(fullfile(path,'meas_s0_cam0.dovi')),3);
-                        % save mat file for next time
-                        im1 = app.ch_im_y;
-                        im0 = app.bkg_im_y;
-                        save(fullfile(path,'summed_images.mat'), 'im1', 'im0');
-                    end
-                    
+                if hasDovi && hasCRaw
+                    app.ch_im_y = double(read_dovi_v2(fullfile(path,'meas_cam0.dovi'),'cumulative',1,'channel','chkv'));
+                    app.bkg_im_y = double(read_dovi_v2(fullfile(path,'meas_cam0.dovi'),'cumulative',1,'channel','bkgd'));
                     % Get rid of readout pixels
                     app.ch_im_y(1,:) = app.ch_im_y(2,:);
                     app.bkg_im_y(1,:) = app.bkg_im_y(2,:);
@@ -1105,8 +1120,12 @@ classdef VIPER_exported < matlab.apps.AppBase
                     
                     
                     app.bkg_ring_diam = 2*peak_rad*app.pixelsize;
+
+
+                    h2 = drawpoint(app.UIAxes_bkg_2,'Position',app.imcent);
+
                     
-                    app.CenterCoordlabel_2.Text = ['Center = ',num2str(app.bkg_ring_center), char(10), 'Diameter = ',num2str(app.bkg_ring_diam, '%2.2f'), ' mm'];
+                    app.CenterCoordlabel_2.Text = ['Center = ',num2str(app.imcent), char(10), 'Diameter = ',num2str(app.bkg_ring_diam, '%2.2f'), ' mm'];
                     app.PositionROIButton.Text = 'Position ROI';
                     app.isRing = 1;
                 end
@@ -1119,7 +1138,7 @@ classdef VIPER_exported < matlab.apps.AppBase
 
         % Callback function
         function HelpButtonCalib_2Pushed(app, event)
-            msg = ['Coming soon'];
+            msg = 'Coming soon';
             helpdlg(msg,'Ring Daiameter Calibration: Help')
         end
 
@@ -1127,7 +1146,7 @@ classdef VIPER_exported < matlab.apps.AppBase
         function SaveYCalibButtonPushed(app, event)
             if strcmp(app.SaveYCalibCheck.Value,'Yes')
                 YVals = [-5, -2.5, -1, 0, 1, 2.5, 5];
-                OpticalDiams = str2num(app.RingDiameterCalib.Value);
+                OpticalDiams = str2double(app.RingDiameterCalib.Value);
                 BackgroundRingDiam = app.BkgRingDiameter.Value;
                 if isempty(OpticalDiams) || (numel(OpticalDiams) ~= numel(YVals))
                     app.OpticalDiamsFormatWarning.Text = 'Warning: Incorrect format';
@@ -1163,7 +1182,7 @@ classdef VIPER_exported < matlab.apps.AppBase
         % Button pushed function: CalcOpticalDiamButton
         function CalcOpticalDiamButtonPushed(app, event)
             if app.isRing ==1
-                rad_mm = 70; % 70 mm profile
+                rad_mm = 80; % 70 mm profile
                 rad = round(rad_mm/app.pixelsize); % convert to pixels
                 divs = 100;
                 
@@ -1182,11 +1201,12 @@ classdef VIPER_exported < matlab.apps.AppBase
                 [~, rise, fall] = fwhm(1:rad, prof_mean, 0.40);
                 radius = mean([rise,fall]);
                 app.optical_diam  = radius*app.pixelsize*2; % get average radius and double for diameter
-                h = drawRingCircle(app, app.imcent(1), app.imcent(2), radius);
+                h = drawcircle(app.UIAxes_ch_2, 'Center', app.imcent, 'Radius', radius);
+                h2 = drawpoint(app.UIAxes_ch_2,'Position',app.imcent);
                 app.OpticalDiamLabel.Text = ['Optical Diameter = ', num2str(app.optical_diam, '%2.2f'), ' mm'];
                 app.isYDone = 1;
             else
-                app.OpticalDiamLabel.Text = 'Complete previous step'
+                app.OpticalDiamLabel.Text = 'Complete previous step';
             end
         end
 
@@ -1248,6 +1268,201 @@ classdef VIPER_exported < matlab.apps.AppBase
             pause(5)
             app.SavePathStatusLabel.Text = '';
         end
+
+        % Button pushed function: BrowsetoFolderButton_5
+        function BrowsetoFolderButton_5Pushed(app, event)
+            app.BrowsetoFolderButton_5.Text = 'Loading...';
+            if app.defaultpath ~= 0
+                path = uigetdir(app.defaultpath, 'Select Data Folder');
+            else
+                path = uigetdir(pwd, 'Select Data Folder');
+            end
+            if path ~= 0
+                dirContents = dir(path);
+                
+                % Check for raw cumulative dovi files
+                hasDovi = false;
+                hasCRaw = false;
+
+                for i=1:numel(dirContents)
+                    if contains(dirContents(i).name, '.dovi')
+                        hasDovi = true;
+                    end
+                end
+                
+                for i=1:numel(dirContents)
+                    if contains(dirContents(i).name, '_c.raw')
+                        hasCRaw = true;
+                    end
+                end
+                
+                % load images
+                if hasDovi && hasCRaw
+                    app.ch_im_op = double(read_dovi_v2(fullfile(path,'meas_cam0.dovi'),'cumulative',1,'channel','chkv'));
+                    app.bkg_im_op = double(read_dovi_v2(fullfile(path,'meas_cam0.dovi'),'cumulative',1,'channel','bkgd'));
+                    % Get rid of readout pixels
+                    app.ch_im_op(1,:) = app.ch_im_op(2,:);
+                    app.bkg_im_op(1,:) = app.bkg_im_op(2,:);
+                            
+%                     if app.isff
+%                         if size(app.ff, 2) == size(app.ch_im_op, 2)
+%                             app.ch_im_op = app.ch_im_op./app.ff;
+%                             app.bkg_im_op = app.bkg_im_op./app.ff;
+%                             app.FFStatusLabel.Text = '';
+%                         else
+%                             app.FFStatusLabel.Text = ['Warning: Flatfield dimension mismatch.' newline, 'Flatfield correction is disabled.'];
+%                         end
+%                     else
+%                         app.FFStatusLabel.Text = ['Warning: No flatfield found.' newline, 'Flatfield correction is disabled.'];
+%                     end
+                    
+                    imagesc(app.UIAxes_bkg_3, app.bkg_im_op)
+                    colormap(app.UIAxes_bkg_3, gray)
+                    set(app.UIAxes_bkg_3, 'PlotBoxAspectRatio', [size(app.bkg_im_op, 2), size(app.bkg_im_op, 1), 1])
+                    
+                    
+                    h = imagesc(app.UIAxes_ch_3, app.ch_im_op);
+                    set(app.UIAxes_ch_3, 'PlotBoxAspectRatio', [size(app.ch_im_op, 2), size(app.ch_im_op, 1), 1])
+         
+                    
+                    app.isLoaded_op = 1;
+                    app.BrowsetoFolderButton_5.Text = 'Browse to Folder';
+                    
+                else
+                    app.BrowsetoFolderButton_5.Text = 'No Files Found';
+                    app.isLoaded_op = 0;
+                    pause(2)
+                    app.BrowsetoFolderButton_5.Text = 'Browse to Folder';
+
+                end
+            else
+                app.BrowsetoFolderButton_5.Text = 'Cancelled';
+                app.isLoaded_op = 0;
+                pause(2)
+                app.BrowsetoFolderButton_5.Text = 'Browse to Folder';
+            end
+        end
+
+        % Button pushed function: CalculateOutputButton
+        function CalculateOutputButtonPushed(app, event)
+            proceed = false;
+            app.BaselineWarningLabel.Text = '';
+            if app.isLoaded_op == 1
+                if app.XZAlignCheckBox.Value == 1
+                    if app.isCrosshair == 0
+                        proceed = false;
+                        app.CalculateOutputButton.Text = 'No Crosshair';
+                        pause(2)
+                        app.CalculateOutputButton.Text = 'Calculate';
+                    elseif app.isCrosshair == 1
+                        cent = app.imcent;
+                        proceed = true;
+                    end
+                elseif app.isCrosshair2 == 1
+                    cent = app.imcent2;
+                    proceed = true;
+                else
+                    proceed = false;
+                    app.CalculateOutputButton.Text = 'No Crosshair';
+                    pause(2)
+                    app.CalculateOutputButton.Text = 'Calculate';
+                end
+                
+                if proceed
+                    h = imagesc(app.UIAxes_ch_3, app.ch_im_op);
+                    set(app.UIAxes_ch_3, 'PlotBoxAspectRatio', [size(app.ch_im_op, 2), size(app.ch_im_op, 1), 1])
+                    
+                    roi = images.roi.Circle(app.UIAxes_ch_3, 'Center', cent, 'Radius', 35/app.pixelsize);
+                    app.outputMask = createMask(roi,h);    
+                    
+                    output_counts = mean(mean(app.ch_im_op(app.outputMask)));
+                    app.OutputCountsResultLabel.Text = num2str(output_counts);
+                
+                    if ~isnan(app.baselineoutput)
+                        app.OutputNormResultLabel.Text = num2str(output_counts/app.baselineoutput,3);
+                    else
+                        app.BaselineWarningLabel.Text = 'No baseline found.';
+                    end
+                end
+                
+            else
+                app.CalculateOutputButton.Text = 'No Images Loaded';
+                pause(2)
+                app.CalculateOutputButton.Text = 'Calculate';
+            end
+        end
+
+        % Button pushed function: ClickCrosshairButton_2
+        function ClickCrosshairButton_2Pushed(app, event)
+            if app.isLoaded_op == 0
+                app.ClickCrosshairButton_2.Text = 'No Images Loaded';
+                pause(2)
+                app.ClickCrosshairButton_2.Text = 'Click Crosshair';
+            else
+                point = drawpoint(app.UIAxes_bkg_3);
+                temp_cent = round(point.Position);
+                delete(point)
+                
+                % Auto calculate crosshair center ----------------
+                r_mm = 8; % mm
+                r_px = r_mm/app.pixelsize; % convert to px
+                circ_vertices_bkg = circlepoints(round(temp_cent(1)), round(temp_cent(2)), round(r_px));
+                bkg_circ_profile = zeros(size(circ_vertices_bkg, 1),1);
+                for i=1:size(circ_vertices_bkg, 1)
+                    bkg_circ_profile(i) = app.bkg_im_op(round(circ_vertices_bkg(i,2)), round(circ_vertices_bkg(i,1)));
+                end
+                
+                vectors = double(circ_vertices_bkg);
+                vectors(:,1) = double(circ_vertices_bkg(:,1) - temp_cent(1));
+                vectors(:,2) = double(circ_vertices_bkg(:,2) - temp_cent(2));   
+                angles = atan2d(vectors(:,2), vectors(:,1)); 
+                for a=1:numel(angles)
+                    if angles(a) <= -135
+                        angles(a) = 360+angles(a);
+                    end
+                end
+                [angles, sort_idx_bkg] = sort(angles);
+                circ_vertices_bkg = circ_vertices_bkg(sort_idx_bkg,:);
+                bkg_circ_profile = bkg_circ_profile(sort_idx_bkg,:);
+                
+                %%
+                
+                bkg_circ_profile = mat2gray(-bkg_circ_profile);
+%                 plot(angles, bkg_circ_profile)
+                
+                %%
+                
+                [~, array_idx, ~, proms] = findpeaks(bkg_circ_profile); % values, indeces, widths, promineces
+                peak_idx = proms > 0.30*max(proms(:)); % greater than 10% of max prominence
+                array_idx = array_idx(peak_idx)';
+                peak_coords = circ_vertices_bkg(array_idx, :);
+                L1(1,:) = [peak_coords(1, 1), peak_coords(3, 1)];
+                L1(2,:) = [peak_coords(1, 2), peak_coords(3, 2)];
+                
+                L2(1,:) = [peak_coords(2, 1), peak_coords(4, 1)];
+                L2(2,:) = [peak_coords(2, 2), peak_coords(4, 2)];
+                
+                app.imcent2 = round(InterX(L1,L2)');
+                
+                % Update UI --------------
+                app.CenterCoordlabel_3.Text = '';
+                pause(0.4)
+                app.CenterCoordlabel_3.Text = ['Center = ',num2str(app.imcent2)];
+%                 app.ClickCrosshairButton.Text = 'Re-click Crosshair';
+                app.isCrosshair2 = 1;
+            end
+        end
+
+        % Button pushed function: SaveOutputButton
+        function SaveOutputButtonPushed(app, event)
+            BaselineOutput = app.BaselineOutputField.Value;
+            save(fullfile(userpath, 'VIPER', 'calib_files','BaselineOutput.mat'), 'BaselineOutput');
+            app.baselineoutput = BaselineOutput;
+            app.SaveOutputStatusLabel.FontColor = 'g';
+            app.SaveOutputStatusLabel.Text = 'Saved';
+            pause(5)
+            app.SaveOutputStatusLabel.Text = '';
+        end
     end
 
     % Component initialization
@@ -1260,7 +1475,7 @@ classdef VIPER_exported < matlab.apps.AppBase
             app.VIPERUIFigure = uifigure('Visible', 'off');
             app.VIPERUIFigure.Color = [0.502 0.502 0.502];
             app.VIPERUIFigure.Position = [100 100 1234 900];
-            app.VIPERUIFigure.Name = 'VIPER 1.0';
+            app.VIPERUIFigure.Name = 'VIPER 1.1';
 
             % Create TabGroup
             app.TabGroup = uitabgroup(app.VIPERUIFigure);
@@ -1268,8 +1483,60 @@ classdef VIPER_exported < matlab.apps.AppBase
 
             % Create XZAlignmentTab
             app.XZAlignmentTab = uitab(app.TabGroup);
-            app.XZAlignmentTab.Title = 'X-Z Alignment';
+            app.XZAlignmentTab.Title = '1) X-Z Alignment';
             app.XZAlignmentTab.BackgroundColor = [0.149 0.149 0.149];
+
+            % Create UIAxes_prof
+            app.UIAxes_prof = uiaxes(app.XZAlignmentTab);
+            title(app.UIAxes_prof, 'Circular Starshot Profile')
+            xlabel(app.UIAxes_prof, 'Angle (degrees)')
+            ylabel(app.UIAxes_prof, 'Intensity')
+            app.UIAxes_prof.PlotBoxAspectRatio = [3.22480620155039 1 1];
+            app.UIAxes_prof.XLim = [0 360];
+            app.UIAxes_prof.XColor = [1 1 1];
+            app.UIAxes_prof.XTick = [0 60 120 180 240 300 360];
+            app.UIAxes_prof.XTickLabelRotation = 0;
+            app.UIAxes_prof.XTickLabel = {'0'; '60'; '120'; '180'; '240'; '300'; '360'};
+            app.UIAxes_prof.YColor = [1 1 1];
+            app.UIAxes_prof.YTickLabelRotation = 0;
+            app.UIAxes_prof.ZTickLabelRotation = 0;
+            app.UIAxes_prof.Color = [0 0 0];
+            app.UIAxes_prof.GridColor = [1 1 1];
+            app.UIAxes_prof.MinorGridColor = [1 1 1];
+            app.UIAxes_prof.XGrid = 'on';
+            app.UIAxes_prof.YGrid = 'on';
+            app.UIAxes_prof.FontSize = 16;
+            app.UIAxes_prof.Position = [45 144 465 205];
+
+            % Create UIAxes_bkg
+            app.UIAxes_bkg = uiaxes(app.XZAlignmentTab);
+            title(app.UIAxes_bkg, 'Background Image')
+            app.UIAxes_bkg.DataAspectRatio = [1 1 1];
+            app.UIAxes_bkg.PlotBoxAspectRatio = [4 3 1];
+            app.UIAxes_bkg.XTick = [];
+            app.UIAxes_bkg.XTickLabelRotation = 0;
+            app.UIAxes_bkg.YTick = [];
+            app.UIAxes_bkg.YTickLabelRotation = 0;
+            app.UIAxes_bkg.ZTickLabelRotation = 0;
+            app.UIAxes_bkg.Color = [0 0 0];
+            app.UIAxes_bkg.Box = 'on';
+            app.UIAxes_bkg.FontSize = 16;
+            app.UIAxes_bkg.Position = [563 468 662 395];
+
+            % Create UIAxes_ch
+            app.UIAxes_ch = uiaxes(app.XZAlignmentTab);
+            title(app.UIAxes_ch, 'Cherenkov Image')
+            app.UIAxes_ch.DataAspectRatio = [1 1 1];
+            app.UIAxes_ch.PlotBoxAspectRatio = [4 3 1];
+            app.UIAxes_ch.XTick = [];
+            app.UIAxes_ch.XTickLabelRotation = 0;
+            app.UIAxes_ch.YTick = [];
+            app.UIAxes_ch.YTickLabelRotation = 0;
+            app.UIAxes_ch.ZTickLabelRotation = 0;
+            app.UIAxes_ch.Color = [0 0 0];
+            app.UIAxes_ch.Box = 'on';
+            app.UIAxes_ch.FontSize = 16;
+            app.UIAxes_ch.Position = [563 66 662 395];
 
             % Create BrowsetoFolderButton_1
             app.BrowsetoFolderButton_1 = uibutton(app.XZAlignmentTab, 'push');
@@ -1402,53 +1669,40 @@ classdef VIPER_exported < matlab.apps.AppBase
             app.CenterCoordlabel.Position = [358 732 264 22];
             app.CenterCoordlabel.Text = '';
 
-            % Create UIAxes_prof
-            app.UIAxes_prof = uiaxes(app.XZAlignmentTab);
-            title(app.UIAxes_prof, 'Circular Starshot Profile')
-            xlabel(app.UIAxes_prof, 'Angle (degrees)')
-            ylabel(app.UIAxes_prof, 'Intensity')
-            app.UIAxes_prof.PlotBoxAspectRatio = [3.22480620155039 1 1];
-            app.UIAxes_prof.XLim = [0 360];
-            app.UIAxes_prof.XColor = [1 1 1];
-            app.UIAxes_prof.XTick = [0 60 120 180 240 300 360];
-            app.UIAxes_prof.XTickLabel = {'0'; '60'; '120'; '180'; '240'; '300'; '360'};
-            app.UIAxes_prof.YColor = [1 1 1];
-            app.UIAxes_prof.Color = [0 0 0];
-            app.UIAxes_prof.XGrid = 'on';
-            app.UIAxes_prof.YGrid = 'on';
-            app.UIAxes_prof.FontSize = 16;
-            app.UIAxes_prof.GridColor = [1 1 1];
-            app.UIAxes_prof.MinorGridColor = [1 1 1];
-            app.UIAxes_prof.Position = [45 144 465 205];
-
-            % Create UIAxes_bkg
-            app.UIAxes_bkg = uiaxes(app.XZAlignmentTab);
-            title(app.UIAxes_bkg, 'Background Image')
-            app.UIAxes_bkg.DataAspectRatio = [1 1 1];
-            app.UIAxes_bkg.PlotBoxAspectRatio = [4 3 1];
-            app.UIAxes_bkg.XTick = [];
-            app.UIAxes_bkg.YTick = [];
-            app.UIAxes_bkg.Color = [0 0 0];
-            app.UIAxes_bkg.FontSize = 16;
-            app.UIAxes_bkg.Box = 'on';
-            app.UIAxes_bkg.Position = [563 468 662 395];
-
-            % Create UIAxes_ch
-            app.UIAxes_ch = uiaxes(app.XZAlignmentTab);
-            title(app.UIAxes_ch, 'Cherenkov Image')
-            app.UIAxes_ch.DataAspectRatio = [1 1 1];
-            app.UIAxes_ch.PlotBoxAspectRatio = [4 3 1];
-            app.UIAxes_ch.XTick = [];
-            app.UIAxes_ch.YTick = [];
-            app.UIAxes_ch.Color = [0 0 0];
-            app.UIAxes_ch.FontSize = 16;
-            app.UIAxes_ch.Box = 'on';
-            app.UIAxes_ch.Position = [563 66 662 395];
-
             % Create YAlignmentTab
             app.YAlignmentTab = uitab(app.TabGroup);
-            app.YAlignmentTab.Title = 'Y Alignment';
+            app.YAlignmentTab.Title = '2) Y Alignment';
             app.YAlignmentTab.BackgroundColor = [0.149 0.149 0.149];
+
+            % Create UIAxes_bkg_2
+            app.UIAxes_bkg_2 = uiaxes(app.YAlignmentTab);
+            title(app.UIAxes_bkg_2, 'Background Image')
+            app.UIAxes_bkg_2.DataAspectRatio = [1 1 1];
+            app.UIAxes_bkg_2.PlotBoxAspectRatio = [4 3 1];
+            app.UIAxes_bkg_2.XTick = [];
+            app.UIAxes_bkg_2.XTickLabelRotation = 0;
+            app.UIAxes_bkg_2.YTick = [];
+            app.UIAxes_bkg_2.YTickLabelRotation = 0;
+            app.UIAxes_bkg_2.ZTickLabelRotation = 0;
+            app.UIAxes_bkg_2.Color = [0 0 0];
+            app.UIAxes_bkg_2.Box = 'on';
+            app.UIAxes_bkg_2.FontSize = 16;
+            app.UIAxes_bkg_2.Position = [563 468 662 395];
+
+            % Create UIAxes_ch_2
+            app.UIAxes_ch_2 = uiaxes(app.YAlignmentTab);
+            title(app.UIAxes_ch_2, 'Cherenkov Image')
+            app.UIAxes_ch_2.DataAspectRatio = [1 1 1];
+            app.UIAxes_ch_2.PlotBoxAspectRatio = [4 3 1];
+            app.UIAxes_ch_2.XTick = [];
+            app.UIAxes_ch_2.XTickLabelRotation = 0;
+            app.UIAxes_ch_2.YTick = [];
+            app.UIAxes_ch_2.YTickLabelRotation = 0;
+            app.UIAxes_ch_2.ZTickLabelRotation = 0;
+            app.UIAxes_ch_2.Color = [0 0 0];
+            app.UIAxes_ch_2.Box = 'on';
+            app.UIAxes_ch_2.FontSize = 16;
+            app.UIAxes_ch_2.Position = [563 66 662 395];
 
             % Create BrowsetoFolderButton_2
             app.BrowsetoFolderButton_2 = uibutton(app.YAlignmentTab, 'push');
@@ -1518,7 +1772,7 @@ classdef VIPER_exported < matlab.apps.AppBase
 
             % Create OpticalDiamLabel
             app.OpticalDiamLabel = uilabel(app.YAlignmentTab);
-            app.OpticalDiamLabel.FontColor = [1 1 1];
+            app.OpticalDiamLabel.FontColor = [1 0.4118 0.1608];
             app.OpticalDiamLabel.Position = [401 607 214 43];
             app.OpticalDiamLabel.Text = '';
 
@@ -1542,33 +1796,9 @@ classdef VIPER_exported < matlab.apps.AppBase
             app.ResetBackgroundImageButton_2.Position = [282 66 210 28];
             app.ResetBackgroundImageButton_2.Text = 'Reset Background Image';
 
-            % Create UIAxes_bkg_2
-            app.UIAxes_bkg_2 = uiaxes(app.YAlignmentTab);
-            title(app.UIAxes_bkg_2, 'Background Image')
-            app.UIAxes_bkg_2.DataAspectRatio = [1 1 1];
-            app.UIAxes_bkg_2.PlotBoxAspectRatio = [4 3 1];
-            app.UIAxes_bkg_2.XTick = [];
-            app.UIAxes_bkg_2.YTick = [];
-            app.UIAxes_bkg_2.Color = [0 0 0];
-            app.UIAxes_bkg_2.FontSize = 16;
-            app.UIAxes_bkg_2.Box = 'on';
-            app.UIAxes_bkg_2.Position = [563 468 662 395];
-
-            % Create UIAxes_ch_2
-            app.UIAxes_ch_2 = uiaxes(app.YAlignmentTab);
-            title(app.UIAxes_ch_2, 'Cherenkov Image')
-            app.UIAxes_ch_2.DataAspectRatio = [1 1 1];
-            app.UIAxes_ch_2.PlotBoxAspectRatio = [4 3 1];
-            app.UIAxes_ch_2.XTick = [];
-            app.UIAxes_ch_2.YTick = [];
-            app.UIAxes_ch_2.Color = [0 0 0];
-            app.UIAxes_ch_2.FontSize = 16;
-            app.UIAxes_ch_2.Box = 'on';
-            app.UIAxes_ch_2.Position = [563 66 662 395];
-
             % Create ResultsTab
             app.ResultsTab = uitab(app.TabGroup);
-            app.ResultsTab.Title = 'Results';
+            app.ResultsTab.Title = '3) Results';
             app.ResultsTab.BackgroundColor = [0.149 0.149 0.149];
 
             % Create ResultsLabel
@@ -1679,7 +1909,7 @@ classdef VIPER_exported < matlab.apps.AppBase
 
             % Create CalibrationTab
             app.CalibrationTab = uitab(app.TabGroup);
-            app.CalibrationTab.Title = 'Calibration';
+            app.CalibrationTab.Title = '4) Calibration';
             app.CalibrationTab.BackgroundColor = [0.149 0.149 0.149];
 
             % Create BrowsetoFolderButton_4
@@ -1861,6 +2091,192 @@ classdef VIPER_exported < matlab.apps.AppBase
             app.SavePathStatusLabel.Position = [787 725 174 22];
             app.SavePathStatusLabel.Text = '';
 
+            % Create OutputCalibLabel
+            app.OutputCalibLabel = uilabel(app.CalibrationTab);
+            app.OutputCalibLabel.FontSize = 16;
+            app.OutputCalibLabel.FontColor = [1 1 1];
+            app.OutputCalibLabel.Position = [42 316 300 23];
+            app.OutputCalibLabel.Text = 'EXPERIMENTAL ONLY: Output Baseline';
+
+            % Create BaselineOutputcountsLabel
+            app.BaselineOutputcountsLabel = uilabel(app.CalibrationTab);
+            app.BaselineOutputcountsLabel.HorizontalAlignment = 'right';
+            app.BaselineOutputcountsLabel.FontSize = 16;
+            app.BaselineOutputcountsLabel.FontColor = [1 1 1];
+            app.BaselineOutputcountsLabel.Position = [411 316 182 22];
+            app.BaselineOutputcountsLabel.Text = 'Baseline Output (counts)';
+
+            % Create BaselineOutputField
+            app.BaselineOutputField = uieditfield(app.CalibrationTab, 'numeric');
+            app.BaselineOutputField.ValueDisplayFormat = '%.3f';
+            app.BaselineOutputField.FontSize = 16;
+            app.BaselineOutputField.Position = [608 316 100 22];
+
+            % Create SaveOutputButton
+            app.SaveOutputButton = uibutton(app.CalibrationTab, 'push');
+            app.SaveOutputButton.ButtonPushedFcn = createCallbackFcn(app, @SaveOutputButtonPushed, true);
+            app.SaveOutputButton.BackgroundColor = [0.502 0.502 0.502];
+            app.SaveOutputButton.FontSize = 16;
+            app.SaveOutputButton.FontColor = [1 1 1];
+            app.SaveOutputButton.Position = [742 305 170 45];
+            app.SaveOutputButton.Text = 'Save Output Baseline';
+
+            % Create SaveOutputStatusLabel
+            app.SaveOutputStatusLabel = uilabel(app.CalibrationTab);
+            app.SaveOutputStatusLabel.FontSize = 16;
+            app.SaveOutputStatusLabel.FontColor = [1 1 1];
+            app.SaveOutputStatusLabel.Position = [945 316 174 22];
+            app.SaveOutputStatusLabel.Text = '';
+
+            % Create OutputexperimentalTab
+            app.OutputexperimentalTab = uitab(app.TabGroup);
+            app.OutputexperimentalTab.Title = 'Output (experimental)';
+            app.OutputexperimentalTab.BackgroundColor = [0.149 0.149 0.149];
+
+            % Create UIAxes_bkg_3
+            app.UIAxes_bkg_3 = uiaxes(app.OutputexperimentalTab);
+            title(app.UIAxes_bkg_3, 'Background Image')
+            app.UIAxes_bkg_3.DataAspectRatio = [1 1 1];
+            app.UIAxes_bkg_3.PlotBoxAspectRatio = [4 3 1];
+            app.UIAxes_bkg_3.XTick = [];
+            app.UIAxes_bkg_3.YTick = [];
+            app.UIAxes_bkg_3.Color = [0 0 0];
+            app.UIAxes_bkg_3.Box = 'on';
+            app.UIAxes_bkg_3.FontSize = 16;
+            app.UIAxes_bkg_3.Position = [563 468 662 395];
+
+            % Create UIAxes_ch_3
+            app.UIAxes_ch_3 = uiaxes(app.OutputexperimentalTab);
+            title(app.UIAxes_ch_3, 'Cherenkov Image')
+            app.UIAxes_ch_3.DataAspectRatio = [1 1 1];
+            app.UIAxes_ch_3.PlotBoxAspectRatio = [4 3 1];
+            app.UIAxes_ch_3.XTick = [];
+            app.UIAxes_ch_3.YTick = [];
+            app.UIAxes_ch_3.Color = [0 0 0];
+            app.UIAxes_ch_3.Box = 'on';
+            app.UIAxes_ch_3.FontSize = 16;
+            app.UIAxes_ch_3.Position = [563 66 662 395];
+
+            % Create BrowsetoFolderButton_5
+            app.BrowsetoFolderButton_5 = uibutton(app.OutputexperimentalTab, 'push');
+            app.BrowsetoFolderButton_5.ButtonPushedFcn = createCallbackFcn(app, @BrowsetoFolderButton_5Pushed, true);
+            app.BrowsetoFolderButton_5.BackgroundColor = [0.502 0.502 0.502];
+            app.BrowsetoFolderButton_5.FontSize = 16;
+            app.BrowsetoFolderButton_5.FontColor = [1 1 1];
+            app.BrowsetoFolderButton_5.Position = [215 818 138 27];
+            app.BrowsetoFolderButton_5.Text = 'Browse to Folder';
+
+            % Create aLoadImagesLabel
+            app.aLoadImagesLabel = uilabel(app.OutputexperimentalTab);
+            app.aLoadImagesLabel.FontSize = 16;
+            app.aLoadImagesLabel.FontColor = [1 1 1];
+            app.aLoadImagesLabel.Position = [16 820 133 22];
+            app.aLoadImagesLabel.Text = 'a.) Load Images';
+
+            % Create CountsLabel
+            app.CountsLabel = uilabel(app.OutputexperimentalTab);
+            app.CountsLabel.FontSize = 16;
+            app.CountsLabel.FontWeight = 'bold';
+            app.CountsLabel.FontColor = [1 1 1];
+            app.CountsLabel.Position = [22 623 67 23];
+            app.CountsLabel.Text = 'Counts:';
+
+            % Create NormalizedtobaselineLabel
+            app.NormalizedtobaselineLabel = uilabel(app.OutputexperimentalTab);
+            app.NormalizedtobaselineLabel.FontSize = 16;
+            app.NormalizedtobaselineLabel.FontWeight = 'bold';
+            app.NormalizedtobaselineLabel.FontColor = [1 1 1];
+            app.NormalizedtobaselineLabel.Position = [22 537 185 23];
+            app.NormalizedtobaselineLabel.Text = 'Normalized to baseline:';
+
+            % Create OutputCountsResultLabel
+            app.OutputCountsResultLabel = uilabel(app.OutputexperimentalTab);
+            app.OutputCountsResultLabel.BackgroundColor = [0.502 0.502 0.502];
+            app.OutputCountsResultLabel.HorizontalAlignment = 'right';
+            app.OutputCountsResultLabel.FontSize = 16;
+            app.OutputCountsResultLabel.FontColor = [1 1 1];
+            app.OutputCountsResultLabel.Position = [22 592 118 23];
+            app.OutputCountsResultLabel.Text = '';
+
+            % Create OutputNormResultLabel
+            app.OutputNormResultLabel = uilabel(app.OutputexperimentalTab);
+            app.OutputNormResultLabel.BackgroundColor = [0.502 0.502 0.502];
+            app.OutputNormResultLabel.HorizontalAlignment = 'right';
+            app.OutputNormResultLabel.FontSize = 16;
+            app.OutputNormResultLabel.FontColor = [1 1 1];
+            app.OutputNormResultLabel.Position = [22 503 74 23];
+            app.OutputNormResultLabel.Text = '';
+
+            % Create cOutputResultLabel
+            app.cOutputResultLabel = uilabel(app.OutputexperimentalTab);
+            app.cOutputResultLabel.FontSize = 16;
+            app.cOutputResultLabel.FontColor = [1 1 1];
+            app.cOutputResultLabel.Position = [14 655 133 22];
+            app.cOutputResultLabel.Text = 'c.) Output Result';
+
+            % Create CalculateOutputButton
+            app.CalculateOutputButton = uibutton(app.OutputexperimentalTab, 'push');
+            app.CalculateOutputButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateOutputButtonPushed, true);
+            app.CalculateOutputButton.BackgroundColor = [0.502 0.502 0.502];
+            app.CalculateOutputButton.FontSize = 16;
+            app.CalculateOutputButton.FontColor = [1 1 1];
+            app.CalculateOutputButton.Position = [215 649 138 27];
+            app.CalculateOutputButton.Text = 'Calculate';
+
+            % Create FindPhantomCenterLabel_2
+            app.FindPhantomCenterLabel_2 = uilabel(app.OutputexperimentalTab);
+            app.FindPhantomCenterLabel_2.FontSize = 16;
+            app.FindPhantomCenterLabel_2.FontColor = [1 1 1];
+            app.FindPhantomCenterLabel_2.Position = [16 754 195 23];
+            app.FindPhantomCenterLabel_2.Text = 'b.) Find Phantom Center';
+
+            % Create ClickCrosshairButton_2
+            app.ClickCrosshairButton_2 = uibutton(app.OutputexperimentalTab, 'push');
+            app.ClickCrosshairButton_2.ButtonPushedFcn = createCallbackFcn(app, @ClickCrosshairButton_2Pushed, true);
+            app.ClickCrosshairButton_2.BackgroundColor = [0.502 0.502 0.502];
+            app.ClickCrosshairButton_2.FontSize = 16;
+            app.ClickCrosshairButton_2.FontColor = [1 1 1];
+            app.ClickCrosshairButton_2.Position = [234 707 134 27];
+            app.ClickCrosshairButton_2.Text = 'Click Crosshair';
+
+            % Create CenterCoordlabel_3
+            app.CenterCoordlabel_3 = uilabel(app.OutputexperimentalTab);
+            app.CenterCoordlabel_3.FontColor = [1 1 1];
+            app.CenterCoordlabel_3.Position = [380 709 192 22];
+            app.CenterCoordlabel_3.Text = '';
+
+            % Create BaselineWarningLabel
+            app.BaselineWarningLabel = uilabel(app.OutputexperimentalTab);
+            app.BaselineWarningLabel.FontColor = [1 1 1];
+            app.BaselineWarningLabel.Position = [115 505 264 22];
+            app.BaselineWarningLabel.Text = '';
+
+            % Create XZAlignCheckBox
+            app.XZAlignCheckBox = uicheckbox(app.OutputexperimentalTab);
+            app.XZAlignCheckBox.Text = '';
+            app.XZAlignCheckBox.Position = [27 700 129 40];
+
+            % Create BaselineWarningLabel_2
+            app.BaselineWarningLabel_2 = uilabel(app.OutputexperimentalTab);
+            app.BaselineWarningLabel_2.FontColor = [1 1 1];
+            app.BaselineWarningLabel_2.Position = [135 485 264 22];
+            app.BaselineWarningLabel_2.Text = '';
+
+            % Create XZAlignOption
+            app.XZAlignOption = uilabel(app.OutputexperimentalTab);
+            app.XZAlignOption.WordWrap = 'on';
+            app.XZAlignOption.FontSize = 16;
+            app.XZAlignOption.FontColor = [1 1 1];
+            app.XZAlignOption.Position = [52 695 120 51];
+            app.XZAlignOption.Text = 'Use Value from X-Z Alignment';
+
+            % Create or
+            app.or = uilabel(app.OutputexperimentalTab);
+            app.or.FontSize = 16;
+            app.or.FontColor = [1 1 1];
+            app.or.Position = [185 709 21 23];
+            app.or.Text = 'or';
+
             % Show the figure after all components are created
             app.VIPERUIFigure.Visible = 'on';
         end
@@ -1870,7 +2286,7 @@ classdef VIPER_exported < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-        function app = VIPER_exported
+        function app = VIPER
 
             % Create UIFigure and components
             createComponents(app)
