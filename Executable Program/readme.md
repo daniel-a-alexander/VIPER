@@ -1,6 +1,6 @@
 ### **VIPER Application Executable**
 
-_Written 04/07/2021 by Daniel Alexander (_[_daniel.a.alexander.th@dartmouth.edu_](mailto:daniel.a.alexander.th@dartmouth.edu)_)_
+_Updated: 03/20/2023 by Daniel Alexander (_[_daniel.a.alexander.th@dartmouth.edu_](mailto:daniel.a.alexander.th@dartmouth.edu)_)_
 
  This directory contains the standalone VIPER program for use on Windows systems.
 
@@ -18,7 +18,7 @@ NOTE: You will need administrator rights to run the MATLAB Runtime installer.
 Alternatively, download and install the Windows version of the MATLAB Runtime for R2020a 
 from the following link on the MathWorks website:
 
-[https://www.mathworks.com/products/compiler/mcr/index.html](https://www.mathworks.com/products/compiler/mcr/index.html)
+[https://www.mathworks.com/products/compiler/matlab-runtime.html](https://www.mathworks.com/products/compiler/matlab-runtime.html)
 
 For more information about the MATLAB Runtime and the MATLAB Runtime installer, see 
 "Distribute Applications" in the MATLAB Compiler documentation  
