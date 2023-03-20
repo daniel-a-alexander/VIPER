@@ -1,4 +1,7 @@
 # VIPER (Visual Isocenter Position Enhanced Review)
+_Update: 03/20/2023 by Daniel Alexander (_[_daniel.a.alexander.th@dartmouth.edu_](mailto:daniel.a.alexander.th@dartmouth.edu)_)_
+Updated to version 1.3. Auto-detect is no longer used for the crosshair slection, only the user input. Now requires 9.14 runtime (2023a).
+
 _Written 04/07/2021 by Daniel Alexander (_[_daniel.a.alexander.th@dartmouth.edu_](mailto:daniel.a.alexander.th@dartmouth.edu)_)_
 
 The VIPER system is a phantom and analysis program designed to perform MR-RT isocenter coincidence verification for MR-Linacs. This repository contains the source code and downloadable exectuable for the VIPER MATLAB program, as well as example image data and calibration files.
